@@ -15,7 +15,10 @@ export default createUseStyles({
 	// To import fonts uncomment line below and add url
 	// '@import': '',
 	'@global': {
-		html: baseStyle,
+		html: {
+			...baseStyle,
+			fontSize: '100%',
+		},
 		body: {
 			...baseStyle,
 			position: 'relative',

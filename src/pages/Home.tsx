@@ -5,6 +5,8 @@ import { NavLink } from 'react-router-dom'
 import { CREATE_PATH, SHEET_PATH } from 'constants/routes'
 import { black } from 'constants/styles/colors'
 
+import Title from 'components/typography/TItle'
+
 const useStyles = createUseStyles({
 	linkWrapper: {
 		width: '100%',
@@ -19,7 +21,6 @@ const useStyles = createUseStyles({
 		margin: [[16, 8]],
 		border: [[1, 'solid', black]],
 		borderRadius: 4,
-		fontSize: 32,
 		textDecoration: 'none',
 		color: black,
 	},
@@ -34,14 +35,14 @@ const Home: React.FC = () => {
 				exact
 				to={CREATE_PATH}
 			>
-				Create a new sheet
+				<Title>Create a new sheet template</Title>
 			</NavLink>
 			<NavLink
 				className={classes.link}
 				exact
 				to={SHEET_PATH}
 			>
-				Enter a sheet code
+				<Title>Use a sheet code</Title>
 			</NavLink>
 		</div>
 	)
