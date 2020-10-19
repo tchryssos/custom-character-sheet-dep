@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom'
 import { CREATE_PATH, SHEET_PATH } from 'constants/routes'
 import { black } from 'constants/styles/colors'
 
-import Title from 'components/typography/TItle'
+import Title from 'components/typography/Title'
 
 const useStyles = createUseStyles({
 	linkWrapper: {

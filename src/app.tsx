@@ -5,6 +5,8 @@ import {
 } from 'react-router-dom'
 import { HOME_PATH, CREATE_PATH, SHEET_PATH } from 'constants/routes'
 import Home from 'pages/Home'
+import Create from 'pages/Create'
+import Sheet from 'pages/Sheet'
 import useGlobalStyles from 'logic/hooks/useGlobalStyles'
 import disableDevTools from 'logic/util/disableDevTools'
 
@@ -26,6 +28,8 @@ const App: React.FC<AppProps> = ({ location: { pathname } }) => {
 		<>
 			<Switch>
 				<Route path={HOME_PATH} exact component={Home} />
+				<Route path={CREATE_PATH} component={Create} />
+				<Route path={SHEET_PATH} exact component={Sheet} />
 			</Switch>
 			{/* NavBar?? */}
 		</>
