@@ -7,6 +7,7 @@ export const marPadZero = {
 export const baseStyle = {
 	height: '100%',
 	width: '100%',
+	fontFamily: 'sans-serif',
 	...marPadZero,
 }
 

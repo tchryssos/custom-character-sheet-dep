@@ -1,8 +1,8 @@
 {
-  "name": "react_template",
-  "version": "3.0.0",
+  "name": "universal_character_sheet",
+  "version": "1.0.0",
   "sideEffects": false,
-  "description": "A website by Troy Chryssos",
+  "description": "A TTRPG character sheet generator and utility.",
   "main": "app.js",
   "repository": "",
   "author": "<troychryssos@gmail.com>",
