@@ -3,6 +3,7 @@ import { render } from 'react-dom'
 import {
 	BrowserRouter, Route, Switch, withRouter,
 } from 'react-router-dom'
+import { HOME_PATH, CREATE_PATH, SHEET_PATH } from 'constants/routes'
 import Home from 'pages/Home'
 import useGlobalStyles from 'logic/hooks/useGlobalStyles'
 import disableDevTools from 'logic/util/disableDevTools'
@@ -24,7 +25,7 @@ const App: React.FC<AppProps> = ({ location: { pathname } }) => {
 	return (
 		<>
 			<Switch>
-				<Route path="/" exact component={Home} />
+				<Route path={HOME_PATH} exact component={Home} />
 			</Switch>
 			{/* NavBar?? */}
 		</>
