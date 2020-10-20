@@ -1,4 +1,3 @@
-import toObjectByProperty from 'logic/utils/toObjectByProperty'
 import { SheetElement } from 'types/sheet'
 
 const metaTag = 'meta'

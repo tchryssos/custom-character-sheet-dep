@@ -1,6 +1,8 @@
-import React, { FormEvent } from 'react'
+import React from 'react'
 import clsx from 'clsx'
 import { createUseStyles } from 'react-jss'
+import assocPath from 'ramda/src/assocPath'
+import path from 'ramda/src/path'
 
 const useStyles = createUseStyles({
 	input: {
@@ -24,13 +26,12 @@ interface Props {
 
 const Input: React.FC<Props> = ({
 	valPath, formVals, label, min, max,
-	readOnly, type, className,
+	readOnly, type, className, setFormVals,
 }) => {
 	const classes = useStyles()
-	const onChange = (e: FormEvent) => {
+	const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		const value = type === 'checkbox' ? 'checked' : 'value'
-		// setFormVals({...formVals, })
-		// setFormVals(assocPath(formPath, e.target[value], formVals))
+		setFormVals(assocPath(valPath, e.target[value], formVals))
 	}
 
 	return (
@@ -43,7 +44,7 @@ const Input: React.FC<Props> = ({
 				className,
 			)}
 			name={valPath.join('-')}
-			// value={}
+			value={path(valPath, formVals)}
 			onChange={onChange}
 			readOnly={readOnly}
 		/>
