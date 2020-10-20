@@ -8,7 +8,7 @@ import Home from 'pages/Home'
 import Create from 'pages/Create'
 import Sheet from 'pages/Sheet'
 import useGlobalStyles from 'logic/hooks/useGlobalStyles'
-import disableDevTools from 'logic/util/disableDevTools'
+import disableDevTools from 'logic/utils/disableDevTools'
 
 if (process.env.NODE_ENV === 'production') {
 	disableDevTools()

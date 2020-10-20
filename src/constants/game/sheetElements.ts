@@ -45,7 +45,6 @@ const description = {
 	label: 'Description',
 	tag: metaTag,
 }
-
 // END - CHARACTER META - END
 
 // START - CHARACTER SKILLS & ATTRS - START
@@ -124,7 +123,7 @@ const castingSave = {
 }
 // END - COMBAT - END
 
-export const SHEET_ELEMENTS_ARRAY = [
+export const SHEET_ELEMENTS = [
 	name, level, classes, race, alignment,
 	profBonus, description, attributes, savingThrows, skills,
 	armorClass, initiative, speed, hitPoints, hitDice,
