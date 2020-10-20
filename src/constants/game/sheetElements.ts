@@ -1,3 +1,6 @@
+import toObjectByProperty from 'logic/utils/toObjectByProperty'
+import { SheetElement } from 'types/sheet'
+
 const metaTag = 'meta'
 const attributesTag = 'attributes'
 const skillsTag = 'skills'
@@ -129,3 +132,15 @@ export const SHEET_ELEMENTS = [
 	armorClass, initiative, speed, hitPoints, hitDice,
 	deathSaves, attacks, castingAbility, castingSave,
 ]
+
+export const SHEET_ELEMENTS_BY_TAG = SHEET_ELEMENTS.reduce(
+	(acc: { [key: string]: SheetElement[] }, el: SheetElement) => {
+		const { tag } = el
+		if (acc[tag]) {
+			acc[tag].push(el)
+		} else {
+			acc[tag] = [el]
+		}
+		return acc
+	}, {},
+)
