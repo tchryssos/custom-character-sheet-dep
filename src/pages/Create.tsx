@@ -4,17 +4,19 @@ import { createUseStyles } from 'react-jss'
 import { SheetElement } from 'types/sheet'
 import ternary from 'logic/utils/ternary'
 
+import ElementSelectForm from 'components/ElementSelectForm'
+
 const useStyles = createUseStyles({
 
 })
 
 const Create: React.FC = () => {
 	const classes = useStyles()
-	const [sheetElements, setSheetElements] = useState<SheetElement[]>([])
+	const [sheetElements, setSheetElements] = useState<string[]>([])
 	return ternary(
 		!!sheetElements.length,
 		<div>you picked</div>,
-		<div>you need to pick</div>,
+		<ElementSelectForm setSheetElements={setSheetElements} />,
 	)
 }
 

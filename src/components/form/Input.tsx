@@ -4,6 +4,8 @@ import { createUseStyles } from 'react-jss'
 import assocPath from 'ramda/src/assocPath'
 import path from 'ramda/src/path'
 
+import { SetFormVals, FormVals, InputChangeEvent } from 'types/sheet'
+
 const useStyles = createUseStyles({
 	input: {
 		padding: 4,
@@ -11,27 +13,40 @@ const useStyles = createUseStyles({
 })
 
 interface Props {
-	valPath: string[],
-	formVals: {
-		[key: string]: any,
-	},
-	setFormVals: (formVals: { [key: string]: any }) => void,
 	label: string,
 	min?: number,
 	max?: number,
 	readOnly?: boolean,
-	type: string,
+	type: 'checkbox' | 'text',
 	className?: string,
 }
 
-const Input: React.FC<Props> = ({
-	valPath, formVals, label, min, max,
-	readOnly, type, className, setFormVals,
-}) => {
+interface StandardProps extends Props {
+	setFormVals: SetFormVals,
+	formVals: FormVals,
+	valPath: string[],
+}
+interface OverrideProps extends Props {
+	setOverride: (formVals: any) => void,
+	valOverride: string | number
+}
+
+const Input: React.FC<StandardProps | OverrideProps> = (props) => {
 	const classes = useStyles()
-	const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+	const {
+		label, min, max,
+		readOnly, type, className
+	} = props
+	const { setFormVals, formVals, valPath } = props as StandardProps
+	const { setOverride, valOverride } = props as OverrideProps
+	
+	const onChange = (e: InputChangeEvent) => {
 		const value = type === 'checkbox' ? 'checked' : 'value'
-		setFormVals(assocPath(valPath, e.target[value], formVals))
+		if (setOverride) {
+			setOverride(e.target.value)
+		} else {
+			setFormVals(assocPath(valPath, e.target[value], formVals))
+		}
 	}
 
 	return (
@@ -43,8 +58,8 @@ const Input: React.FC<Props> = ({
 				classes.input,
 				className,
 			)}
-			name={valPath.join('-')}
-			value={path(valPath, formVals)}
+			name={valPath ? valPath.join('-') : label}
+			value={valOverride ? valOverride : path(valPath, formVals)}
 			onChange={onChange}
 			readOnly={readOnly}
 		/>
