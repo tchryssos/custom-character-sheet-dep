@@ -1,5 +1,5 @@
 {
-	"parser": "babel-eslint",
+	"parser": "@typescript-eslint/parser",
 	"env": {
 		"browser": true,
 		"node": true,
@@ -9,11 +9,13 @@
 		"React": true
 	},
 	"plugins": [
-		"react"
+		"react",
+		"@typescript-eslint",
 	],
 	"extends": [
 		"eslint:recommended",
-		"airbnb"
+		"airbnb",
+		"plugin:@typescript-eslint/recommended"
 	],
 
 	"rules": {

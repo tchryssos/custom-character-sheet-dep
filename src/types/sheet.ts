@@ -16,7 +16,8 @@ export type InputStandardProps = {
 }
 export type InputOverrideProps = {
   label: string,
-  setOverride: (formVals: any) => void
+  setOverride: (formVals: any) => void,
+  valOverride: any
 }
 export type InputProps = InputStandardProps | InputOverrideProps
 

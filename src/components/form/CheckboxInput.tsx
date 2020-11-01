@@ -14,7 +14,7 @@ const useStyles = createUseStyles({
 const CheckboxInput: React.FC<InputProps> = (props) => {
 	const { label } = props
 	const { setFormVals, formVals, valPath } = props as InputStandardProps
-	const { setOverride } = props as InputOverrideProps
+	const { setOverride, valOverride } = props as InputOverrideProps
 	// const classes = useStyles()
 	return (
 		<Input
@@ -24,6 +24,7 @@ const CheckboxInput: React.FC<InputProps> = (props) => {
 			setFormVals={setFormVals}
 			label={label}
 			setOverride={setOverride}
+			valOverride={valOverride}
 		/>
 	)
 }

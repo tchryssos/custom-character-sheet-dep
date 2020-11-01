@@ -26,6 +26,7 @@ const ElementSelectForm: React.FC<Props> = ({ setSheetElements }) => {
 				({ id, label }) => (
 					<CheckboxInput
 						setOverride={addToSelected(id)}
+						valOverride={id}
 						label={label}
 						key={id}
 					/>
