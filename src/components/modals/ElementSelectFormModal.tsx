@@ -51,7 +51,7 @@ const ElementSelectForm: React.FC<Props> = ({ setSheetElements, isVisible, setIs
 					<Body>Which of the following fields do you want on your sheet?</Body>
 					{Object.keys(SHEET_ELEMENTS_BY_TAG).map(
 						(tag) => (
-							<>
+							<div key={tag}>
 								<div className={classes.tagLabel}>
 									<Body bold>{capitalize(tag)}</Body>
 								</div>
@@ -65,7 +65,7 @@ const ElementSelectForm: React.FC<Props> = ({ setSheetElements, isVisible, setIs
 										/>
 									),
 								)}
-							</>
+							</div>
 						),
 					)}
 				</div>

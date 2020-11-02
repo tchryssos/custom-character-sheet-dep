@@ -52,7 +52,7 @@ const Button: React.FC<LabelProps | ChildrenProps> = (props) => {
 			{ternary(
 				!!label,
 				<Body>{label}</Body>,
-				{ children },
+				children,
 			)}
 		</button>
 	)

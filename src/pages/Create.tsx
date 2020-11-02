@@ -3,6 +3,7 @@ import { createUseStyles } from 'react-jss'
 
 import ternary from 'logic/utils/ternary'
 
+import Button from 'components/Button'
 import ElementSelectForm from 'components/modals/ElementSelectFormModal'
 
 const useStyles = createUseStyles({
@@ -16,11 +17,14 @@ const Create: React.FC = () => {
 	return ternary(
 		!!sheetElements.length,
 		<div>you picked</div>,
-		<ElementSelectForm
-			setSheetElements={setSheetElements}
-			isVisible={modalVisible}
-			setIsVisible={setModalVisible}
-		/>,
+		<>
+			<Button label="Create new sheet" onClick={() => setModalVisible(true)} />
+			<ElementSelectForm
+				setSheetElements={setSheetElements}
+				isVisible={modalVisible}
+				setIsVisible={setModalVisible}
+			/>
+		</>,
 	)
 }
 
