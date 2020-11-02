@@ -11,7 +11,14 @@ import Body from 'components/typography/Body'
 import Button from 'components/Button'
 
 const useStyles = createUseStyles({
+	form: {
+		width: '100%',
+		display: 'flex',
+		flexDirection: 'column',
+		alignItems: 'center',
+	},
 	elementOptionWrapper: {
+		width: '100%',
 		display: 'flex',
 		flexDirection: 'column',
 		flexWrap: 'wrap',
@@ -22,6 +29,10 @@ const useStyles = createUseStyles({
 		height: 24,
 		display: 'flex',
 		alignItems: 'center',
+	},
+	submit: {
+		marginTop: 16,
+		width: '50%',
 	},
 })
 
@@ -46,7 +57,7 @@ const ElementSelectForm: React.FC<Props> = ({ setSheetElements, isVisible, setIs
 	}
 	return (
 		<Modal isVisible={isVisible} onClose={() => setIsVisible(false)}>
-			<form>
+			<form className={classes.form}>
 				<div className={classes.elementOptionWrapper}>
 					<Body>Which of the following fields do you want on your sheet?</Body>
 					{Object.keys(SHEET_ELEMENTS_BY_TAG).map(
@@ -70,6 +81,7 @@ const ElementSelectForm: React.FC<Props> = ({ setSheetElements, isVisible, setIs
 					)}
 				</div>
 				<Button
+					className={classes.submit}
 					label="Submit"
 					type="submit"
 					onClick={() => setSheetElements(selectedElements)}
