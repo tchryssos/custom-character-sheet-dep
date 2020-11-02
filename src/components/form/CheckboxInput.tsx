@@ -6,8 +6,9 @@ import { InputProps, InputStandardProps, InputOverrideProps } from 'types/sheet'
 import Input from 'components/form/Input'
 
 const useStyles = createUseStyles({
-	input: {
-
+	checkbox: {
+		height: 24,
+		width: 24,
 	},
 })
 
@@ -15,7 +16,7 @@ const CheckboxInput: React.FC<InputProps> = (props) => {
 	const { label } = props
 	const { setFormVals, formVals, valPath } = props as InputStandardProps
 	const { setOverride, valOverride } = props as InputOverrideProps
-	// const classes = useStyles()
+	const classes = useStyles()
 	return (
 		<Input
 			type="checkbox"
@@ -25,6 +26,7 @@ const CheckboxInput: React.FC<InputProps> = (props) => {
 			label={label}
 			setOverride={setOverride}
 			valOverride={valOverride}
+			className={classes.checkbox}
 		/>
 	)
 }

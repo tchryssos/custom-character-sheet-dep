@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import { createUseStyles } from 'react-jss'
 
-import { SHEET_ELEMENTS } from 'constants/game/sheetElements'
+import { SHEET_ELEMENTS_BY_TAG } from 'constants/game/sheetElements'
 import { InputChangeEvent } from 'types/sheet'
+import capitalize from 'logic/utils/capitalize'
 
 import CheckboxInput from 'components/form/CheckboxInput'
 import Body from 'components/typography/Body'
@@ -11,6 +12,14 @@ const useStyles = createUseStyles({
 	elementOptionWrapper: {
 		display: 'flex',
 		flexDirection: 'column',
+		flexWrap: 'wrap',
+	},
+	tagLabel: {
+		marginLeft: 6,
+		marginTop: 16,
+		height: 24,
+		display: 'flex',
+		alignItems: 'center',
 	},
 })
 
@@ -35,14 +44,23 @@ const ElementSelectForm: React.FC<Props> = ({ setSheetElements }) => {
 		<form>
 			<div className={classes.elementOptionWrapper}>
 				<Body>Which of the following fields do you want on your sheet?</Body>
-				{SHEET_ELEMENTS.map(
-					({ id, label }) => (
-						<CheckboxInput
-							setOverride={addToSelected}
-							valOverride={id}
-							label={label}
-							key={id}
-						/>
+				{Object.keys(SHEET_ELEMENTS_BY_TAG).map(
+					(tag) => (
+						<>
+							<div className={classes.tagLabel}>
+								<Body bold>{capitalize(tag)}</Body>
+							</div>
+							{SHEET_ELEMENTS_BY_TAG[tag].map(
+								({ id, label }) => (
+									<CheckboxInput
+										setOverride={addToSelected}
+										valOverride={id}
+										label={label}
+										key={id}
+									/>
+								),
+							)}
+						</>
 					),
 				)}
 			</div>
