@@ -7,6 +7,7 @@ import capitalize from 'logic/utils/capitalize'
 
 import CheckboxInput from 'components/form/CheckboxInput'
 import Body from 'components/typography/Body'
+import Button from 'components/Button'
 
 const useStyles = createUseStyles({
 	elementOptionWrapper: {
@@ -15,7 +16,7 @@ const useStyles = createUseStyles({
 		flexWrap: 'wrap',
 	},
 	tagLabel: {
-		marginLeft: 6,
+		marginLeft: 4,
 		marginTop: 16,
 		height: 24,
 		display: 'flex',
@@ -64,6 +65,11 @@ const ElementSelectForm: React.FC<Props> = ({ setSheetElements }) => {
 					),
 				)}
 			</div>
+			<Button
+				label="Submit"
+				type="submit"
+				onClick={() => setSheetElements(selectedElements)}
+			/>
 		</form>
 	)
 }

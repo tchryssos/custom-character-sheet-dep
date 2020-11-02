@@ -10,16 +10,19 @@ const useStyles = createUseStyles({
 })
 
 interface Props {
-	label: string,
-	onClick?: () => void,
-	className?: string,
+	label: string
+	onClick?: () => void
+	type?: 'button' | 'submit'
+	className?: string
 }
 
-const Button: React.FC<Props> = ({ label, onClick, className }) => {
+const Button: React.FC<Props> = ({
+	label, type = 'button', onClick, className,
+}) => {
 	const classes = useStyles()
 	return (
 		<button
-			type="button"
+			type={type === 'button' ? 'button' : 'submit'}
 			onClick={onClick}
 			className={clsx(
 				classes.button,
