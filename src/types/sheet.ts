@@ -14,6 +14,7 @@ export type InputStandardProps = {
   valPath: string[],
   label: string,
 }
+
 export type InputOverrideProps = {
   label: string,
   setOverride: (formVals: any) => void,
