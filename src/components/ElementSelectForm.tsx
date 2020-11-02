@@ -68,6 +68,7 @@ const ElementSelectForm: React.FC<Props> = ({ setSheetElements }) => {
 			<Button
 				label="Submit"
 				type="submit"
+				invisible
 				onClick={() => setSheetElements(selectedElements)}
 			/>
 		</form>
