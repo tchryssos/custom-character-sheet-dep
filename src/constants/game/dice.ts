@@ -1,4 +1,4 @@
-export default [
+const dice = [
 	{
 		label: 'd4',
 		value: 4,
@@ -23,4 +23,6 @@ export default [
 		label: 'd20',
 		value: 20,
 	},
-]
+];
+
+export default dice;

@@ -1,6 +1,8 @@
-export default (condition: boolean, truthy: any, falsey: any) => {
+const ternary = <T, U>(condition: boolean, truthy: T, falsey: U): T | U => {
 	if (condition) {
-		return truthy
+		return truthy;
 	}
-	return falsey
-}
+	return falsey;
+};
+
+export default ternary;

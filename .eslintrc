@@ -37,11 +37,14 @@
 		"no-confusing-arrow": 0,
 		"implicit-arrow-linebreak": 0,
 		"operator-linebreak": 0,
+		// https://stackoverflow.com/questions/63818415/react-was-used-before-it-was-defined/64024916#64024916
+		"no-use-before-define": "off",
 
 		// import
 		"import/no-named-as-default": 0,
 		"import/extensions": 0,
 		"import/prefer-default-export": 0,
+		"import/no-anonymous-default-export": "warn",
 
 		// jsx-a11y
 		"jsx-a11y/href-no-hash": 0,
@@ -55,7 +58,10 @@
 		"react/jsx-no-bind": 1,
 		"react/require-default-props": 0,
 		"react/prop-types": 0,
-		"react/jsx-curly-newline": 0
+		"react/jsx-curly-newline": 0,
+
+		// typescript
+		"@typescript-eslint/no-use-before-define": ["error"]
 	},
 	"parserOptions": {
 		"ecmaFeatures": {
